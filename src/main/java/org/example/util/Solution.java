@@ -40,27 +40,21 @@ public class Solution {
 
     private static Map<Integer, Integer> extractPairs(int[] numbers) {
         Map<Integer, Integer> pairs = new HashMap<>();
+        Map<String, Integer> firstLastDigitMap = new HashMap<>();
 
-        for (int i = 0; i < numbers.length; i++) {
-            String stringNumber = String.valueOf(numbers[i]);
-            char firstDigit = stringNumber.charAt(0);
-            char lastDigit = stringNumber.charAt(stringNumber.length() - 1);
-
-            for (int j = 0; j < numbers.length; j++) {
-                if (i == j) {
-                    // The same number must be skipped.
-                    continue;
-                }
-
-                String twinStringNumber = String.valueOf(numbers[j]);
-                char twinFirstDigit = twinStringNumber.charAt(0);
-                char twinLastDigit = twinStringNumber.charAt(twinStringNumber.length() - 1);
-
-                if (firstDigit == twinFirstDigit && lastDigit == twinLastDigit) {
-                    pairs.put(numbers[i], numbers[j]);
-                }
+        for (int number : numbers) {
+            String key = getFirstAndLastDigit(number);
+            if (firstLastDigitMap.containsKey(key)) {
+                pairs.put(firstLastDigitMap.get(key), number);
+            } else {
+                firstLastDigitMap.put(key, number);
             }
         }
         return pairs;
+    }
+
+    private static String getFirstAndLastDigit(int number) {
+        String numStr = String.valueOf(number);
+        return numStr.charAt(0) + "" + numStr.charAt(numStr.length() - 1);
     }
 }
