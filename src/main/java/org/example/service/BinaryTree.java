@@ -1,6 +1,6 @@
 package org.example.service;
 
-public interface BinaryTreeService {
+public interface BinaryTree {
 
     void insert(int data);
     int findMaximum();

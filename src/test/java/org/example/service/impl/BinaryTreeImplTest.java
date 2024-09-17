@@ -1,17 +1,18 @@
 package org.example.service.impl;
 
+import org.example.service.BinaryTree;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BinaryTreeServiceImplTest {
+class BinaryTreeImplTest {
 
-    private BinaryTreeServiceImpl underTest;
+    private BinaryTree underTest;
 
     @BeforeEach
     void init() {
-        this.underTest = new BinaryTreeServiceImpl();
+        this.underTest = new BinaryTreeImpl();
 
         this.underTest.insert(5);
         this.underTest.insert(3);

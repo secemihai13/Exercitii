@@ -1,11 +1,11 @@
 package org.example.service.impl;
 
 import org.example.dto.Node;
-import org.example.service.BinaryTreeService;
+import org.example.service.BinaryTree;
 
 import static java.util.Objects.isNull;
 
-public class BinaryTreeServiceImpl implements BinaryTreeService {
+public class BinaryTreeImpl implements BinaryTree {
 
     private Node root;
 
