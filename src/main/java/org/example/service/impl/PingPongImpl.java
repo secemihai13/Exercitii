@@ -1,11 +1,11 @@
 package org.example.service.impl;
 
-import lombok.SneakyThrows;
 import org.example.service.PingPong;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 
 public class PingPongImpl implements PingPong {
@@ -19,8 +19,8 @@ public class PingPongImpl implements PingPong {
         this.executor = executor;
     }
 
-    @SneakyThrows
-    public List<String> play() {
+    @Override
+    public List<String> play() throws ExecutionException, InterruptedException {
         List<String> printMessages = new ArrayList<>(500_000);
         long startTime = System.currentTimeMillis();
 

@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.example.service.PingPong;
 import org.example.service.impl.PingPongImpl;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
 @Getter
@@ -15,8 +16,10 @@ public class Exercitiul2 {
         this.pingPong = pingPong;
     }
 
-    public static void main(String[] args) {
-        var exercitiul2 = new Exercitiul2(new PingPongImpl(Executors.newFixedThreadPool(2)));
-        exercitiul2.getPingPong().play();
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        try (var executor = Executors.newFixedThreadPool(2)) {
+            var exercitiul2 = new Exercitiul2(new PingPongImpl(executor));
+            exercitiul2.getPingPong().play();
+        }
     }
 }

@@ -4,6 +4,7 @@ import org.example.service.PingPong;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
 import static org.example.service.impl.PingPongImpl.PING;
@@ -15,7 +16,7 @@ class PingPongTest {
     private final PingPong underTest = new PingPongImpl(Executors.newFixedThreadPool(2));
 
     @Test
-    void playPingPong() {
+    void playPingPong() throws ExecutionException, InterruptedException {
         List<String> printMessages = this.underTest.play();
 
         for (int i = 0; i < printMessages.size(); i++) {
