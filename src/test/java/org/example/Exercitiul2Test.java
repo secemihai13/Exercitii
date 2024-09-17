@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 
 import static org.example.Exercitiul2.PING;
 import static org.example.Exercitiul2.PONG;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Exercitiul2Test {
 
