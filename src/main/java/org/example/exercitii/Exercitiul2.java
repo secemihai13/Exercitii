@@ -1,4 +1,4 @@
-package org.example;
+package org.example.exercitii;
 
 import lombok.Getter;
 import org.example.service.PingPong;

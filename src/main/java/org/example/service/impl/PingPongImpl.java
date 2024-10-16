@@ -37,7 +37,7 @@ public class PingPongImpl implements PingPong {
         return printMessages;   // The returned list is used in unit testing.
     }
 
-    private static synchronized String consolePrint (String message) {
+    private static String consolePrint (String message) {
         System.out.println(message);
         return message;
     }

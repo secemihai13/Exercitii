@@ -43,7 +43,7 @@ public class Solution {
         Map<String, Integer> firstLastDigitMap = new HashMap<>();
 
         for (int number : numbers) {
-            String key = getFirstAndLastDigit(number);
+            String key = getFirstAndLastDigit(number);     //  3   303
             if (firstLastDigitMap.containsKey(key)) {
                 pairs.put(firstLastDigitMap.get(key), number);
             } else {

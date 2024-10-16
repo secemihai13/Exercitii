@@ -3,6 +3,8 @@ package org.example.service.impl;
 import org.example.dto.Node;
 import org.example.service.BinaryTree;
 
+import java.util.NoSuchElementException;
+
 import static java.util.Objects.isNull;
 
 public class BinaryTreeImpl implements BinaryTree {
@@ -24,21 +26,21 @@ public class BinaryTreeImpl implements BinaryTree {
         return calculateDepthRecursive(this.root);
     }
 
-    private static Node insertRecursive(Node root, int data) {
-        if (isNull(root)) {
+    private static Node insertRecursive(Node node, int data) {
+        if (isNull(node)) {
             return new Node(data);
         }
-        if (data < root.getData()) {
-            root.setLeft(insertRecursive(root.getLeft(), data));
-        } else if (data > root.getData()) {
-            root.setRight(insertRecursive(root.getRight(), data));
+        if (data < node.getData()) {
+            node.setLeft(insertRecursive(node.getLeft(), data));
+        } else if (data > node.getData()) {
+            node.setRight(insertRecursive(node.getRight(), data));
         }
-        return root;
+        return node;
     }
 
     private static int findMaximumRecursive(Node root) {
         if (isNull(root)) {
-            return Integer.MIN_VALUE;
+            throw new NoSuchElementException("No value present");
         }
 
         int max = root.getData();

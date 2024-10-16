@@ -1,4 +1,4 @@
-package org.example;
+package org.example.exercitii;
 
 import org.example.util.Solution;
 
